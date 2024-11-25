@@ -9,13 +9,7 @@ final getIt = GetIt.instance;
 Future<void> init() async {
   //! ----------- Core -----------
 
-  getIt.registerLazySingleton<InternetConnectionChecker>(
-        () => InternetConnectionChecker(),
-  );
   getIt.registerLazySingleton<NavUtils>(
         () => NavUtils(),
-  );
-  getIt.registerLazySingleton<BottomSheetUtils>(
-        () => BottomSheetUtils(navigatorKey: getIt<NavUtils>().navigatorKey),
   );
 }
