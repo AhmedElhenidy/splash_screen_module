@@ -40,10 +40,11 @@ class SplashScreenState extends State<SplashScreen>
   }
 
   void _navigateToChooseLangScreen() {
-    Navigator.of(context).pushAndRemoveUntil(
-      MaterialPageRoute(builder: (c) => ChooseLangScreen(onIntroFinish: widget.onIntroFinish,)),
-          (Route<dynamic> route) => false,
-    );
+    // Navigator.of(context).pushAndRemoveUntil(
+    //   MaterialPageRoute(builder: (c) => ChooseLangScreen(onIntroFinish: widget.onIntroFinish,)),
+    //       (Route<dynamic> route) => false,
+    // );
+    getIt<NavUtils>().pushReplaceAll( ChooseLangScreen(onIntroFinish: widget.onIntroFinish,));
   }
 
   Future<void> warmingUpTameeni() async {
