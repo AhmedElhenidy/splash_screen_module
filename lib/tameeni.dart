@@ -13,35 +13,23 @@ import 'core/utils/navigation_routes/navigation_utils.dart';
 import 'core/utils/style/text_manager.dart';
 import 'core/utils/style/theme_manager.dart';
 
+Future<void> warmingUpSplashScreen() async {
+  //* Setting system bar icons to be dark while application background is white
+  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark);
 
-class Tameeni extends StatefulWidget {
+  //* Widgets Binding Initialized
+  WidgetsFlutterBinding.ensureInitialized();
+
+  //* Initialize Localization
+  await EasyLocalization.ensureInitialized();
+  //* Initialize Get injection
+  await init();
+}
+
+class Tameeni extends StatelessWidget {
   final Function(BuildContext context) onIntroFinish;
   const Tameeni({required this.onIntroFinish,super.key});
 
-  @override
-  State<Tameeni> createState() => _TameeniState();
-}
-
-class _TameeniState extends State<Tameeni> {
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    Future.delayed(Duration(seconds: 2));
-    warmingUpTameeni();
-  }
-  Future<void> warmingUpTameeni() async {
-    //* Setting system bar icons to be dark while application background is white
-    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark);
-
-    //* Widgets Binding Initialized
-    WidgetsFlutterBinding.ensureInitialized();
-
-    //* Initialize Localization
-    await EasyLocalization.ensureInitialized();
-    //* Initialize Get injection
-    await init();
-  }
   @override
   Widget build(BuildContext context) {
     //
@@ -110,7 +98,7 @@ class _TameeniState extends State<Tameeni> {
             debugShowCheckedModeBanner: false,
             theme: getTameeniTheme(),
             navigatorKey: getIt<NavUtils>().navigatorKey,
-            home:  SplashScreen(onIntroFinish: widget.onIntroFinish),
+            home:  SplashScreen(onIntroFinish: onIntroFinish),
           ),
         ),
       ),
