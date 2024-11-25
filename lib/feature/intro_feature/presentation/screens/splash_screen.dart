@@ -30,7 +30,6 @@ class SplashScreenState extends State<SplashScreen>
 
   Future<void> _initializeApp() async {
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      await warmingUpTameeni();
       await _setupApp(true);
     });
   }
@@ -40,25 +39,10 @@ class SplashScreenState extends State<SplashScreen>
   }
 
   void _navigateToChooseLangScreen() {
-    // Navigator.of(context).pushAndRemoveUntil(
-    //   MaterialPageRoute(builder: (c) => ChooseLangScreen(onIntroFinish: widget.onIntroFinish,)),
-    //       (Route<dynamic> route) => false,
-    // );
     getIt<NavUtils>().pushReplaceAll( ChooseLangScreen(onIntroFinish: widget.onIntroFinish,));
   }
 
-  Future<void> warmingUpTameeni() async {
-    //* Setting system bar icons to be dark while application background is white
-    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark);
 
-    //* Widgets Binding Initialized
-    WidgetsFlutterBinding.ensureInitialized();
-
-    //* Initialize Localization
-    await EasyLocalization.ensureInitialized();
-    //* Initialize Get injection
-    await init();
-  }
 
   @override
   Widget build(BuildContext context) {
