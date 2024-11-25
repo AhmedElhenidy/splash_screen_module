@@ -83,9 +83,10 @@ class ChooseLangScreen extends StatelessWidget {
                 SolidButton(
                   text: 'Confirm'.tr(),
                   onPressed: () {
-                    getIt<NavUtils>().push( OnBoardingScreen(
-                      onIntroFinish: onIntroFinish,
-                    ));
+                    Navigator.of(context).push(MaterialPageRoute(builder: (ctx)=>
+                        OnBoardingScreen(
+                          onIntroFinish: onIntroFinish,
+                        )));
                   },
                 ),
                 16.verticalSpace,
