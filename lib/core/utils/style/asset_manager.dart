@@ -1,6 +1,6 @@
 // ignore_for_file: constant_identifier_names
 
-const String ICONS_PATH = 'assets/icons/';
+const String ICONS_PATH = 'assets/images/';
 const String LOTTIE_PATH = 'assets/lottie/';
 
 abstract class IconsAssets {
