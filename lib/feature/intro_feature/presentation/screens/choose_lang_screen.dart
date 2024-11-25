@@ -13,7 +13,7 @@ import '../../../../core/utils/style/text_manager.dart';
 import 'onboarding_screen.dart';
 
 class ChooseLangScreen extends StatelessWidget {
-  final Function() onIntroFinish;
+  final Function(BuildContext context) onIntroFinish;
   const ChooseLangScreen({required this.onIntroFinish,super.key});
 
   @override

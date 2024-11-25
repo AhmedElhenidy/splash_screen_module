@@ -8,7 +8,7 @@ import '../../../../core/utils/style/color_manager.dart';
 import '../../../../core/utils/style/text_manager.dart';
 
 class OnBoardingScreen extends StatefulWidget {
-  final Function() onIntroFinish;
+  final Function(BuildContext context) onIntroFinish;
   const OnBoardingScreen({required this.onIntroFinish,super.key});
 
   @override
@@ -39,7 +39,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
   Future<void> goToNextStep() async {
     if (indicatorController.page!.round() >= _onBoardingHeaders.length - 1) {
       // go to Identity
-      widget.onIntroFinish();
+      widget.onIntroFinish(context);
     } else {
       indicatorController.nextPage(
         duration: const Duration(milliseconds: 250),
@@ -96,7 +96,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                                 ),
                                 child: InkWell(
                                   onTap: () {
-                                    widget.onIntroFinish();
+                                    widget.onIntroFinish(context);
                                   },
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.center,

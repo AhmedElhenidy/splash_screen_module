@@ -12,7 +12,7 @@ import '../../../../core/utils/style/text_manager.dart';
 import 'choose_lang_screen.dart';
 
 class SplashScreen extends StatefulWidget {
-  final Function() onIntroFinish;
+  final Function(BuildContext context) onIntroFinish;
   const SplashScreen({required this.onIntroFinish,super.key});
 
   @override
